@@ -1,5 +1,4 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 from selenium.common.exceptions import NoAlertPresentException
 import math
@@ -48,3 +47,7 @@ class ProductPage(BasePage):
     def check_item_name_in_access_alert(self):
         assert self.item_name_on_page() == self.item_name_in_busket(), \
             "Name of bock on page and on alert are not equal!"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.NAME_BOOK_IN_BUSKET_MESSAGE), \
+            "Success message is presented, but should not be"
