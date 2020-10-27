@@ -1,8 +1,8 @@
 import pytest
 from .pages.product_page import ProductPage
-import time
 
-link = f'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/{ProductPage.PROMO}'
+# link = f'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/{ProductPage.PROMO}'
+link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 
 
 # @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
@@ -49,3 +49,15 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.add_item_to_busket()
     page.solve_quiz_and_get_code()
     page.should_dissapeared()
+
+
+def test_guest_should_see_login_link_on_product_page(browser):
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_login_link()
+
+
+def test_guest_can_go_to_login_page_from_product_page(browser):
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_login_page()

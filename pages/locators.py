@@ -12,3 +12,8 @@ class ProductPageLocators():
     PRICE_OF_BOOK_ON_PAGE = (By.XPATH, "//p[@class='price_color']")
     PRICE_OF_BOOK_IN_BUSKET_MESSAGE = (By.XPATH, "//div[@class='alertinner ']/p/strong")
     SUCCESS_MESSAGE = (By.XPATH, "//div[@id='messages']/div[1]")
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
