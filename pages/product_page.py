@@ -6,7 +6,7 @@ import math
 
 
 class ProductPage(BasePage):
-    PROMO = "?promo=newYear"
+    PROMO = "?promo=newYear2019"
 
     def add_item_to_bucket(self):
         add_bucket = self.browser.find_element(*ProductPageLocators.ADD_TO_BUCKET_BUTTON)
@@ -26,12 +26,16 @@ class ProductPage(BasePage):
         except NoAlertPresentException:
             print("No second alert presented")
 
-    def check_item_in_bucket(self):
+    def bucket_price_message(self):
         bucket_price = self.browser.find_element(*ProductPageLocators.PRICE_OF_BOOK_IN_BUCKET_MESSAGE)
+        return bucket_price.text
+
+    def item_price(self):
         page_price = self.browser.find_element(*ProductPageLocators.PRICE_OF_BOOK_ON_PAGE)
-        print(bucket_price)
-        print(page_price)
-        assert bucket_price.text == page_price.text, "Price in Bucket and on Page are not equal!"
+        return page_price.text
+
+    def check_item_in_bucket(self):
+        assert self.item_price() == self.bucket_price_message(), "Price in Bucket and on Page are not equal!"
 
     def check_item_name_in_bucket(self):
         page_book = self.browser.find_element(*ProductPageLocators.NAME_BOOK_ON_PAGE)
