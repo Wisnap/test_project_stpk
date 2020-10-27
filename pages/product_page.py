@@ -8,7 +8,7 @@ import math
 class ProductPage(BasePage):
     PROMO = "?promo=newYear2019"
 
-    def add_item_to_bucket(self):
+    def add_item_to_busket(self):
         add_bucket = self.browser.find_element(*ProductPageLocators.ADD_TO_BUCKET_BUTTON)
         add_bucket.click()
 
@@ -30,21 +30,21 @@ class ProductPage(BasePage):
         page_price = self.browser.find_element(*ProductPageLocators.PRICE_OF_BOOK_ON_PAGE)
         return page_price.text
 
-    def bucket_price_message(self):
-        bucket_price = self.browser.find_element(*ProductPageLocators.PRICE_OF_BOOK_IN_BUCKET_MESSAGE)
-        return bucket_price.text
+    def busket_price_message(self):
+        busket_price = self.browser.find_element(*ProductPageLocators.PRICE_OF_BOOK_IN_BUSKET_MESSAGE)
+        return busket_price.text
 
-    def check_item_in_bucket(self):
-        assert self.item_price() == self.bucket_price_message(), "Price in Bucket and on Page are not equal!"
+    def check_item_in_busket(self):
+        assert self.item_price() == self.busket_price_message(), "Price in Bucket and on Page are not equal!"
 
     def item_name_on_page(self):
         page_book = self.browser.find_element(*ProductPageLocators.NAME_BOOK_ON_PAGE)
         return page_book.text
 
-    def item_name_in_bucket(self):
-        message_book = self.browser.find_element(*ProductPageLocators.NAME_BOOK_IN_BUCKET_MESSAGE)
+    def item_name_in_busket(self):
+        message_book = self.browser.find_element(*ProductPageLocators.NAME_BOOK_IN_BUSKET_MESSAGE)
         return message_book.text
 
     def check_item_name_in_access_alert(self):
-        assert self.item_name_on_page() == self.item_name_in_bucket(), \
+        assert self.item_name_on_page() == self.item_name_in_busket(), \
             "Name of bock on page and on alert are not equal!"
