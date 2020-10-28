@@ -14,10 +14,12 @@ class ProductPageLocators():
     SUCCESS_MESSAGE = (By.XPATH, "//div[@id='messages']/div[1]")
 
 
+
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    BASKET_BUTTON = (By.CSS_SELECTOR, "span.btn-group")
 
 
 class LoginPageLocators():
@@ -25,3 +27,8 @@ class LoginPageLocators():
     REGISTER_PASSWORD = (By.CSS_SELECTOR, "#id_registration-password1")
     REGISTER_CONFIRM_PASSWORD = (By.CSS_SELECTOR, "#id_registration-password2")
     BUTTON_END_REGISTRATION = (By.CSS_SELECTOR, "button[name='registration_submit']")
+
+
+class BasketPageLocators():
+    ITEMS_TO_BUY_ELEMENT = (By.CSS_SELECTOR, ".col-sm-6.h3")
+    BUSKET_EMPTY_TEXT = (By.XPATH, "//div[@class='content']/div[2]/p")
