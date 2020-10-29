@@ -5,7 +5,6 @@ import math
 
 
 class ProductPage(BasePage):
-    PROMO = "?promo=newYear2019"
 
     def add_item_to_busket(self):
         add_bucket = self.browser.find_element(*ProductPageLocators.ADD_TO_BUCKET_BUTTON)

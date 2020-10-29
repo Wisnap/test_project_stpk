@@ -5,7 +5,7 @@ from .pages.basket_page import BasketPage
 from .pages.main_page import MainPage
 import faker
 
-link = f'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/{ProductPage.PROMO}'
+link = f'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/'
 
 
 @pytest.mark.smoke
